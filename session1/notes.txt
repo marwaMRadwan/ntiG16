@@ -1,0 +1,8 @@
+MEAN stack developer => full stack
+revision js
+advanced js 
+node
+express js
+monogoDB
+type script
+angular
