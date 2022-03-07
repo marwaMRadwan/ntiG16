@@ -1,8 +1,11 @@
-const addTask = document.querySelector("#addTask")
+const addTask = document.querySelector("#addTask")   //null <form>
+const tableBody = document.querySelector("#tableBody")
 const taskHeads = ['title', 'dueDate', 'content','taskType']
+
 const readDataFromStorage= (storageKey)=>{
-    let data =[]
+    let data
     try{
+        // (typeof data) [] {} object
         data = JSON.parse(localStorage.getItem(storageKey)) || []
         if(!Array.isArray(data)) throw new Error("is not array")
     }
@@ -16,12 +19,37 @@ const writeDataToStorage = (data, storageKey)=>{
 }
 const formSubmit = function(e){
     e.preventDefault()
-    let task = {id:Date.now()} //{name:"test"}
-    taskHeads.forEach(head=>{
-        task[head]= this.elements[head].value
-    })
+    let task = {id:Date.now(), createdAt: new Date()} //{name:"test"}
+    taskHeads.forEach(head => task[head]= this.elements[head].value )
     const tasks = readDataFromStorage("tasks")
     tasks.push(task)
     writeDataToStorage(tasks, "tasks")
+    this.reset()
+    window.location.href="index.html"
 }
-addTask.addEventListener("submit", formSubmit)
+const creatMyOwnElements = (parent, htmlElement, txt, classes)=>{
+    const myEle = document.createElement(htmlElement)
+    parent.appendChild(myEle)
+    if(txt) myEle.textContent = txt
+    if(classes) myEle.className = classes
+    return myEle
+}
+//const taskHeads = ['title', 'dueDate', 'content','taskType']
+showAll = () =>{
+    const tasks = readDataFromStorage("tasks")
+    tasks.forEach((task, index)=>{
+        const tr = creatMyOwnElements(tableBody,"tr",null, null)
+        creatMyOwnElements(tr,"td",index+1, null)
+        taskHeads.forEach(head=>creatMyOwnElements(tr,"td",task[head], null))
+        const actionTD = creatMyOwnElements(tr,"td",null, null)
+        const showBtn =creatMyOwnElements(actionTD, "button", "show", "btn btn-primary me-2")
+        const editBtn = creatMyOwnElements(actionTD, "button", "Edit", "btn btn-warning me-2")
+        const delBtn = creatMyOwnElements(actionTD, "button", "Delete", "btn btn-danger me-2")
+        showBtn.addEventListener("click", ()=>{
+            console.log(index)
+        })
+    })
+}
+if(addTask) addTask.addEventListener("submit", formSubmit)
+
+if(tableBody) showAll()
