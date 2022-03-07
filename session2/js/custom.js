@@ -1,17 +1,27 @@
 const addTask = document.querySelector("#addTask")
-const tasks = []
+const taskHeads = ['title', 'dueDate', 'content','taskType']
+const readDataFromStorage= (storageKey)=>{
+    let data =[]
+    try{
+        data = JSON.parse(localStorage.getItem(storageKey)) || []
+        if(!Array.isArray(data)) throw new Error("is not array")
+    }
+    catch(e){
+        data= []
+    }
+    return data
+}
+const writeDataToStorage = (data, storageKey)=>{
+    localStorage.setItem(storageKey, JSON.stringify(data))
+}
 const formSubmit = function(e){
     e.preventDefault()
-    // console.log(this.elements.title.value)
-    let task = {
-        taskTitle: this.elements.title.value,
-        taskDueDate: this.elements.dueDate.value,
-        taskContent: this.elements.content.value,
-        taskType: this.elements.taskType.value
-    }
+    let task = {id:Date.now()} //{name:"test"}
+    taskHeads.forEach(head=>{
+        task[head]= this.elements[head].value
+    })
+    const tasks = readDataFromStorage("tasks")
     tasks.push(task)
-    console.log(tasks)
+    writeDataToStorage(tasks, "tasks")
 }
-
 addTask.addEventListener("submit", formSubmit)
-

@@ -9,17 +9,47 @@
 <body>
     <script>
         //json=> javascript object notation
-        let data = [
-            {name:"marwa"},
-            {name:"mona"},
-            {name:"nouran"}
-        ]
-        console.log(typeof data)
+        // let data = [
+        //     {name:"marwa"},
+        //     {name:"mona"},
+        //     {name:"nouran"}
+        // ]
+        // console.log(typeof data)
         //json.stringify
-        localStorage.setItem("data", JSON.stringify(data))
-        let x = JSON.parse(localStorage.getItem("data"))
-        console.log(x)    
-        console.log(typeof x)
+        // localStorage.setItem("data", JSON.stringify(data))
+        // let x = JSON.parse(localStorage.getItem("data"))
+        // console.log(x)    
+        // console.log(typeof x)
+        try{
+            ////////
+        }
+        catch(e){
+            //////
+        }
 </script>
 </body>
 </html>
+
+
+<!-- const addTask = document.querySelector("#addTask")
+const taskHeads = ['title', 'dueDate', 'content','taskType']
+const tasks = []
+const formSubmit = function(e){
+    e.preventDefault()
+    // console.log(this.elements.title.value)
+    // let task = {
+    //     taskTitle: this.elements.title.value,
+    //     taskDueDate: this.elements.dueDate.value,
+    //     taskContent: this.elements.content.value,
+    //     taskType: this.elements.taskType.value
+    // }
+    let task = {id:Date.now()}
+    taskHeads.forEach(head=>{
+        task[head]= this.elements[head].value
+    })
+    tasks.push(task)
+    console.log(tasks)
+}
+
+addTask.addEventListener("submit", formSubmit)
+ -->
