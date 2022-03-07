@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //json=> javascript object notation
+        let data = [
+            {name:"marwa"},
+            {name:"mona"},
+            {name:"nouran"}
+        ]
+        console.log(typeof data)
+        //json.stringify
+        localStorage.setItem("data", JSON.stringify(data))
+        let x = JSON.parse(localStorage.getItem("data"))
+        console.log(x)    
+        console.log(typeof x)
+</script>
+</body>
+</html>
