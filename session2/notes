@@ -1,1 +1,3 @@
-customers => name, address, age
+customers => bank
+
+name, accNum(dynamic), intial balance, address

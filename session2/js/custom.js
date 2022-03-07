@@ -56,7 +56,7 @@ const showSingle = (task, i, tasks)=>{
     const showBtn =creatMyOwnElements(actionTD, "button", "show", "btn btn-primary me-2")
     const editBtn = creatMyOwnElements(actionTD, "button", "Edit", "btn btn-warning me-2")
     const delBtn = creatMyOwnElements(actionTD, "button", "Delete", "btn btn-danger me-2")
-    delBtn.addEventListener("click", ()=>{delTask(tasks, i)})
+    delBtn.addEventListener("click", ()=>{ delTask(tasks, i) })
 }
 showAll = () =>{
     //reset tbody
