@@ -1,0 +1,19 @@
+data.json
+users => [ { id:"", name:"", age:"" , email:""}]
+
+show all
+show single user
+del user
+edit user
+add user
+
+read json file
+write in json file
+
+index.js => call functions
+controller=> user.js, dealwithdata.js
+data.json
+
+validator
+chalk
+fs
