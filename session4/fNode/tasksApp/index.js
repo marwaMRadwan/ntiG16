@@ -1,7 +1,9 @@
 //my custom modules
 const user = require("./controllers/user")
-//npm installed modules
-const validator = require("validator")
-const chalk = require("chalk")
 
-user.addUser()
+let userData = {
+    age:36,
+    email:"nouran@test.com"
+}
+// user.addUser(userData)
+user.showAll()

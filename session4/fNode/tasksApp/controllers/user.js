@@ -1,15 +1,45 @@
+//npm installed modules
+const validator = require("validator")
+const chalk = require("chalk")
+
 const dealWithJson = require("./dealWithJson")
-const addUser = () =>{
-    const users = dealWithJson.readData()
-    users.push({id:1, name:"marwa", age:36})
-    dealWithJson.writeData(users)
-    console.log("user Added")
+const addUser = (userData) =>{
+    try{
+        if(!userData.name || userData.name.length<3) throw new Error("invalid name")
+        if( !validator.isEmail(userData.email) ) throw new Error("invalid Email")
+        userData.id = Date.now()
+        const users = dealWithJson.readData()
+        users.push(userData)
+        dealWithJson.writeData(users)
+        console.log(chalk.green("user Added"))    
+    }
+    catch(e){
+        console.log(chalk.red(e.message))
+    }
 }
 const showAll = () => {
-
+    try{
+        const users = dealWithJson.readData()
+        if(users.length==0) throw new Error("no users yet")
+        else{
+            users.forEach(user=>{
+                console.log(chalk.green(`
+id: ${user.id} - name: ${user.name} - age: ${user.age} - email: ${user.email}
+`))
+            })
+        }
+    }
+    catch(e){
+        console.log(chalk.red(e.message))
+    }
 }
-const showSingle = () => {
-
+const showSingle = (userId) => {
+    /*
+    read data from json
+    find user by id find, findIndex
+    if not found =>user not found
+    else print user
+    */
 }
 const delUser = () => {
 
