@@ -10,7 +10,8 @@ function apiGetter(apiLink, callback){
         })
     }
     )
-    .catch(e=> callback(false, e.message))    
+    .catch(e=> callback(false, e.message))   
+    return 'a' 
 }
 
 apiGetter("https://jsonplaceholder.typicode.com/users", (res, err)=>{
