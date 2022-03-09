@@ -7,17 +7,21 @@
 // myFs.writeFileSync("a.txt", "hello")
 
 //my own modules
-// const myMod = require("./m")
+const myMod = require("./m")
 // myMod()
 // console.log(myMod)
-// myMod.fun2()
+myMod.fun1()
 
 //npm modules
 /* 
-npm init 
-npm install pkg
+npm init --y
+npm install ---------- way of any package install
 npm i chalk@4.0.0
+npm i
 */
 //validator 
-const validator=require("validator")
-console.log(validator.isFloat("marwa"))
+const val = require("validator")
+console.log(val.isFloat("marwa"))
+
+const chalk = require("chalk")
+console.log(chalk.blue(myMod.fun2()));
