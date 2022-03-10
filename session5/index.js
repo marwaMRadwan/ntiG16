@@ -2,9 +2,9 @@
 const user = require("./controllers/user")
 
 let userData = {
-    name:"Mazen",
-    age:36,
-    email:"nouran@test.com"
+    name:"a",
+    age:"b",
+    email:"c@test.com"
 }
 // user.addUser(userData)
 // user.showAll()

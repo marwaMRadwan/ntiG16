@@ -3,12 +3,21 @@ const validator = require("validator")
 const chalk = require("chalk")
 
 const dealWithJson = require("./dealWithJson")
+const findMyUserIndex = (users, key, val)=>{
+    let i = users.findIndex( user => user[key] == val )
+    return i
+}
 const addUser = (userData) =>{
     try{
         if(!userData.name || userData.name.length<3) throw new Error("invalid name")
         if( !validator.isEmail(userData.email) ) throw new Error("invalid Email")
         userData.id = Date.now()
         const users = dealWithJson.readData()
+
+        if(findMyUserIndex(users, "email", userData.email ) != -1 ) 
+            return console.log("email used before")
+
+
         users.push(userData)
         dealWithJson.writeData(users)
         console.log(chalk.green("user Added"))    
@@ -37,9 +46,10 @@ const showSingle = (userId) => {
     // read data from json
     const users = dealWithJson.readData()
     // find user by id find, findIndex
-    const user = users.find(u=> u.id==userId)
+    // const user = users.find(u=> u.id==userId)
+    const user = findMyUserIndex(users, "id", userId)  
     // if not found =>user not found
-    if(user) console.log(user)
+    if(user!=-1) console.log(users[user])
     // else print user
     else console.log('not found')
 }
@@ -71,5 +81,6 @@ const editUser = (userId, newData) => {
     dealWithJson.writeData(users)
     console.log("data edited")
 }
+
 
 module.exports = { addUser, showAll, showSingle, delUser, editUser }

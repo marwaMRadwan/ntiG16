@@ -9,5 +9,12 @@
 
 // const data = JSON.parse(fs.readFileSync("data.json"))
 // console.log(data)
-const x = [1,2,3,4,5]
-console.log([9,...x, 6])
+// const x = [1,2,3,4,5]
+// console.log([9,...x, 6])
+
+userData = {
+    name:"Mazen",
+    age:36,
+    email:"nouran@test.com"
+}
+console.log({...userData, x:5, y:3})

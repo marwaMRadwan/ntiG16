@@ -1,0 +1,4 @@
+customer => name, intial balance, remaining balance, account number
+
+add
+add operation => withdraw, add

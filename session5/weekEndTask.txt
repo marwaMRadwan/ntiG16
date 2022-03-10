@@ -1,0 +1,19 @@
+cutomers => name, accNum, intialBalance, remainigBalance, 
+operations:[{opType:"with", val:100, at:"date"}]
+on yargs 
+add customer => {
+    accNum:1,
+    name:"marwa",
+    intialBalance:1000,
+    remainigBalance:1000,
+    operations:[]
+}
+=> add Customer 
+=> add operation => builder => opType, opValue
+if withdraw remainigBalance> opValue
+else add  opValue<6000
+=> show user
+name- ....
+operation
+- val: 100   type:add   time:-----
+- val:200    type:with   time:----
