@@ -53,8 +53,23 @@ const delUser = (userId) => {
     //save data 
     dealWithJson.writeData(filtered)
 }
-const editUser = () => {
-
+const editUser = (userId, newData) => {
+    //get data from json
+    const users = dealWithJson.readData()
+    //user index
+    const i = users.findIndex(u=> u.id==userId)
+    //if user not found
+    if(i==-1) return console.log("not found")
+    //{"name":"Marwa","age":36,"email":"nouran@test.com","id":1646830542423}
+    // console.log(users[i])
+    // users[i] = newData
+    // users[i].id = userId
+    //change data in all data
+    users[i] = {id:userId, ...newData}
+    // console.log(users[i])
+    //save to json
+    dealWithJson.writeData(users)
+    console.log("data edited")
 }
 
 module.exports = { addUser, showAll, showSingle, delUser, editUser }
