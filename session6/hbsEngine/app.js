@@ -88,9 +88,9 @@ app.get("/",(req,res)=>{
         thumbnailUrl: "https://via.placeholder.com/150/810b14"
         }
         ]
-    res.render('home', { data })
+    res.render('home', { data }) //localhost:3000/
 })
-app.get('/about', (req,res)=>{
+app.get('/about', (req,res)=>{ //localhost:3000/about
     res.render("about", {
         name:"marwa",
         age:36,
@@ -98,5 +98,13 @@ app.get('/about', (req,res)=>{
         details:{ job:"CTO", location:"Techs Experts"}
     })
 })
+const fetch = require('node-fetch');
+app.get('/api', async(req,res)=>{ //localhost:3000/about
+    const response = await fetch('https://jsonplaceholder.typicode.com/photos?_limit=10');
+    const data = await response.json()
+    res.render('home', {data})
+})
+
+
 
 app.listen(PORT, ()=> console.log("server up"))
