@@ -1,6 +1,23 @@
 {{>header}}
 {{>nav}}
-    <h3>
-        hello from hbs home.hbs
-    </h3>
+<ul>
+    {{#each data}}
+    <li>
+        {{this.title}} 
+<img src="{{this.url}}" width="50" height="50">
+
+    </li>
+    {{/each}}
+</ul>
+
+<table>
+{{#each data}}
+    <tr>
+        <td>{{this.id}}</td>
+        <td>{{this.title}}</td>
+        <td><img src="{{this.url}}" width="50" height="50">
+</td>
+    </tr>
+    {{/each}}
+</table>
 {{>footer}}
