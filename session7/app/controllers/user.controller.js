@@ -1,17 +1,25 @@
 const deal = require("../helpers/dealWithJson")
 const showAll = (req,res)=>{
-    
+    const users = deal.readData()
     res.render("showAll", {
-        pageTitle:"All Users"
+        pageTitle:"All Users",
+        users,
+        isEmpty: users.length==0 ? true : false  // []
     })
 }
 const show = (req,res)=>{
+    let userId = req.params.id
+    const allUsers = deal.readData()
+    let user = allUsers.find(u=> u.id == userId)
     res.render("show", {
-        pageTitle:"User Data"
+        pageTitle:"User Data",
+        user,
+        isEmpty: user? false : true // x? true : false
     })
 }
 const addUser = (req,res)=>{
     let user = {
+        id: Date.now(),
         name:req.query.name,
         age:req.query.age,
         email:req.query.email

@@ -13,18 +13,25 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Marwa</td>
-                <td>
-                    <a href="/show" class="btn btn-primary mx-2">Show</a>
-                    <a href="/edit" class="btn btn-warning mx-2">Edit</a>
-                    <a href="/delete" class="btn btn-danger mx-2">Delete</a>
-                </td>
-            </tr>
+            {{#if isEmpty}}
             <tr class="alert alert-danger">
                 <td colspan="3" class="text-center">No users yet</td>
             </tr>
+            {{else}}
+            {{#each users}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.name}}</td>
+                <td>
+                    <a href="/show/{{this.id}}" class="btn btn-primary mx-2">Show</a>
+                    <a href="/edit/{{this.id}}" class="btn btn-warning mx-2">Edit</a>
+                    <a href="/delete/{{this.id}}" class="btn btn-danger mx-2">Delete</a>
+                </td>
+            </tr>
+            {{/each}}
+            {{/if}}
+
+
         </tbody>
     </table>
 </section>
