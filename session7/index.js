@@ -1,2 +1,2 @@
-const app = require("./app/app.js")
-app.listen(3000, ()=>console.log('server up'))
+const runner = require("./app/app.js")
+runner.listen(3000, ()=>console.log('server up'))
