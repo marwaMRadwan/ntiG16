@@ -41,6 +41,10 @@ const editUser = (req,res)=>{
     })
 }
 const deleteUser = (req,res)=>{
-    res.send("deleted")
+    let userId = req.params.id
+    const users = deal.readData()
+    let data = users.filter(u=> u.id!=userId)
+    deal.writeData(data)
+    res.redirect("/")
 }
 module.exports = { showAll, addUser, editUser, show , deleteUser}
