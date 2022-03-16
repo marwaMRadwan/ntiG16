@@ -7,6 +7,10 @@ router.post("/add", userController.addLogic)
 
 
 router.get("/show/:id", userController.show)
+
 router.get("/edit/:id", userController.editUser)
+router.post("/edit/:id", userController.editUserLogic)
+
 router.get("/delete/:id", userController.deleteUser)
+
 module.exports = router

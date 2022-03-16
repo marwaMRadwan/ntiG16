@@ -25,9 +25,7 @@ const addUser = (req,res)=>{
 const addLogic = (req,res)=>{
     let user = {
         id: Date.now(),
-        name:req.body.name,
-        age:req.body.age,
-        email:req.body.email
+        ...req.body
     }
         let data = deal.readData()
         data.push(user)
@@ -35,10 +33,25 @@ const addLogic = (req,res)=>{
         res.redirect("/")
 }
 const editUser = (req,res)=>{
+    let userId = req.params.id
+    const allUsers = deal.readData()
+    let user = allUsers.find(u=> u.id == userId)
+    if(!user) res.redirect("/")
     res.render("edit", {
-        pageTitle:"Edit User"
+        pageTitle:"Edit user",
+        user
     })
+
 }
+const editUserLogic=(req,res)=>{
+    let userId = req.params.id
+    const allUsers = deal.readData()
+    const userIndex = allUsers.findIndex(u=> u.id==userId)
+    allUsers[userIndex] = { ...req.body, id: userId }
+    deal.writeData(allUsers)
+    res.redirect("/")
+}
+
 const deleteUser = (req,res)=>{
     let userId = req.params.id
     const users = deal.readData()
@@ -46,4 +59,4 @@ const deleteUser = (req,res)=>{
     deal.writeData(data)
     res.redirect("/")
 }
-module.exports = { showAll, addUser, editUser, show , deleteUser, addLogic}
+module.exports = { showAll, addUser, editUser, show , deleteUser, addLogic, editUserLogic}
