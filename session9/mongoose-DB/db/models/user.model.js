@@ -1,7 +1,4 @@
 const mongoose = require("mongoose")
-const dbUrl = "mongodb://localhost:27017/mongooseS9"
-mongoose.connect(dbUrl)
-
 const user = mongoose.model("user", {
     name:{
         type: String,
@@ -25,8 +22,4 @@ const user = mongoose.model("user", {
         unique:true
     }
 }) 
-
-const userData = new user({name:"ma", age:36, email:"marwa@techs.com"})
-userData.save()
-.then((res)=> console.log(res))
-.catch(e=> console.log(e.message))
+module.exports = user
