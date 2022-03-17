@@ -1,18 +1,29 @@
 const userModel = require("../../db/models/user.model")
-const showAll = (req,res)=>{
-res.send("home")
-            // res.render("showAll", {
-            //     pageTitle:"All Users",
-            //     users,
-            //     isEmpty: users.length==0 ? true : false 
-            // })
+const showAll = async(req,res)=>{
+    try{
+        const users = await userModel.find()
+        res.render("showAll", {
+            pageTitle:"All Users",
+            users,
+            isEmpty: users.length==0 ? true : false 
+        })
+    }
+    catch(e){
+        res.send(e.message)
+    }        
 }
-const show = (req,res)=>{
-            // res.render("show", {
-            //     pageTitle:"User Data",
-            //     user:result,
-            //     isEmpty: result? false : true // x? true : false
-            // })
+const show = async(req,res)=>{
+    try{
+     const user = await userModel.findById(req.params.id) //findOne({_id:req.params.id})
+     res.render("show", {
+        pageTitle:"user data",
+        user,
+        isEmpty: user ? false : true 
+      })
+    }
+    catch(e){
+        res.send(e.message)
+    }
 }
 const addUser = (req,res)=>{
     res.render("add", {
