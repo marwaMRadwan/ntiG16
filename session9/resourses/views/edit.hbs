@@ -1,0 +1,23 @@
+{{>header}}
+{{>nav}}
+<section class="my-5 container">
+    <form method="post">
+        <div class="mb-3">
+            <input class="form-control" placeholder="Id" name="id" value="{{user.id}}" disabled>
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="Name" name="name" value="{{user.name}}">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="Email" name="email" value="{{user.email}}">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="Age" name="age" value="{{user.age}}">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Edit User</button>
+        </div>
+
+    </form>    
+</section>
+{{>footer}}
