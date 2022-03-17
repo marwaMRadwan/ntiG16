@@ -43,22 +43,30 @@ const addLogic = (req,res)=>{
     })
 }
 const editUser = (req,res)=>{
-    // let userId = req.params.id
-    // const allUsers = deal.readData()
-    // let user = allUsers.find(u=> u.id == userId)
-    // if(!user) res.redirect("/")
-    // res.render("edit", {
-    //     pageTitle:"Edit user",
-    //     user
-    // })
+    let userId = req.params.id
+    db((err, connection)=>{
+    connection.collection("user").findOne( { _id : new ObjectId(userId) } , 
+        (e, result)=>{
+            res.render("edit", {
+                pageTitle:"Edit Data",
+                user:result,
+                isEmpty: result? false : true // x? true : false
+            })
+        }
+        )
+    })
+    
 }
 const editUserLogic=(req,res)=>{
-    // let userId = req.params.id
-    // const allUsers = deal.readData()
-    // const userIndex = allUsers.findIndex(u=> u.id==userId)
-    // allUsers[userIndex] = { ...req.body, id: userId }
-    // deal.writeData(allUsers)
-    // res.redirect("/")
+    db((err, connection)=>{
+        if(err) res.send(err)
+        connection.collection("user").updateOne(
+            { _id : new ObjectId( req.params.id ) },
+            { $set: req.body } // {name:"abc", age:12}
+        )
+        .then(()=> res.redirect('/'))
+        .catch(e=> res.send(e) )
+    })
 }
 const deleteUser = (req,res)=>{
     let userId = req.params.id
