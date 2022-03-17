@@ -1,0 +1,19 @@
+{{>header}}
+{{>nav}}
+<section class="my-5 container">
+    <div class="row mb-3 justifiy-content-end">
+        {{#if isEmpty}}
+        <div class="alert alert-danger">
+            Invalid User Id
+        </div>
+        {{else}}
+        <div class="border border-primary border-4 p-4 m-4">
+            <h3>ID: {{user.id}}</h3>
+            <h3>Name: {{user.name}}</h3>
+            <h3>Age: {{user.age}}</h3>
+            <h3>Email: {{user.email}}</h3>
+        </div>
+        {{/if}}
+    </div>
+</section>
+{{>footer}}

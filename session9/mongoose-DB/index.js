@@ -1,10 +1,2 @@
-require("./db/connection")
-const userModel = require("./db/models/user.model")
-const userData = new userModel({
-    name:"marwa", 
-    age:36, 
-    email:"nouran@techs.com"
-})
-userData.save()
-.then((res)=> console.log(res))
-.catch(e=> console.log(e.message))
+const runner = require("./app/app.js")
+runner.listen(3000, ()=>console.log('server up'))
