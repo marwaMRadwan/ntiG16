@@ -26,6 +26,12 @@ const user = mongoose.model("user", {
             if(!validator.isEmail(value)) 
                 throw new Error("invalid Email format")
         }
-    }
+    },
+    addresses:[
+        {
+            addrType:{type:String},
+            addrDetails:{type:String}
+        }
+    ]
 }) 
 module.exports = user

@@ -1,0 +1,8 @@
+{
+    name:",
+    age:,
+    email,
+    addresses:[
+        {addrtype, addrdetails:}
+    ]
+}

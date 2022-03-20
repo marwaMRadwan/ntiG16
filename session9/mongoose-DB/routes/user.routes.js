@@ -6,6 +6,8 @@ router.get("/", userController.showAll)
 router.get("/add", userController.addUser)
 router.post("/add", userController.addLogic)
 
+router.get("/addAddr/:id", userController.addAddr)
+router.post("/addAddr/:id", userController.addAddrLogic)
 
 router.get("/show/:id", userController.show)
 

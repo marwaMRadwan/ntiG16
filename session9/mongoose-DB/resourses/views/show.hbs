@@ -8,10 +8,32 @@
         </div>
         {{else}}
         <div class="border border-primary border-4 p-4 m-4">
-            <h3>ID: {{user.id}}</h3>
-            <h3>Name: {{user.name}}</h3>
-            <h3>Age: {{user.age}}</h3>
-            <h3>Email: {{user.email}}</h3>
+            <div class="row">
+            <h3 class="col-md-6 col-12">ID: {{user.id}}</h3>
+            <h3 class="col-md-6 col-12">Name: {{user.name}}</h3>
+            <h3 class="col-md-6 col-12">Age: {{user.age}}</h3>
+            <h3 class="col-md-6 col-12">Email: {{user.email}}</h3>                
+            </div>
+            <hr>
+            <h5 class="my-4 text-primary">User Addresses</h5>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>type</th>
+                        <th>details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each user.addresses}}
+                    <tr>
+                        <td>{{this._id}}</td>
+                        <td>{{this.addrType}}</td>
+                        <td>{{this.addrDetails}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
         </div>
         {{/if}}
     </div>

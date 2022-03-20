@@ -1,0 +1,22 @@
+{{>header}}
+{{>nav}}
+<section class="my-5 container">
+    {{#if errors}}
+    <div class="alert alert-danger">
+        {{errors}}
+    </div>
+    {{/if}}
+    <form method="post">
+        <div class="mb-3">
+            <input class="form-control" placeholder="Address type" name="addrType">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="Address Details" name="addrDetails">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Add Address</button>
+        </div>
+
+    </form>    
+</section>
+{{>footer}}
