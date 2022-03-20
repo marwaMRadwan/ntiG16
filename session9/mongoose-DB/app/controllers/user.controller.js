@@ -63,21 +63,37 @@ class User {
             res.send(e.message)
         }
     }
-    static editUser = (req,res)=>{
-                // res.render("edit", {
-                //     pageTitle:"Edit Data",
-                //     user:result,
-                //     isEmpty: result? false : true // x? true : false
-                // })
-        
+    static editUser = async(req,res)=>{
+        try{
+            const user = await userModel.findById(req.params.id)
+            res.render("edit", {
+                pageTitle:"Edit Data",
+                user,
+                isEmpty: user? false : true 
+                })
+
+           }
+           catch(e){
+               res.send(e.message)
+           }        
     }
-    static editUserLogic=(req,res)=>{
-            // .then(()=> res.redirect('/'))
-            // .catch(e=> res.send(e) )
+    static editUserLogic=async(req,res)=>{
+        try{
+            await userModel.findByIdAndUpdate(req.params.id, req.body)
+            res.redirect('/')
+        }
+        catch(e){
+           res.send(e.message)
+        }
     }
-    static deleteUser = (req,res)=>{
-        // .then(()=> res.redirect("/"))
-        // .catch(e=> res.send(e))
+    static deleteUser = async(req,res)=>{
+        try{
+            await userModel.findByIdAndDelete(req.params.id)            
+            res.redirect('/')
+        }
+        catch(e){
+           res.send(e.message)
+        }
     }
 }
 module.exports = User
