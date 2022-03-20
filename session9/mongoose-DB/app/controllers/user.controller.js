@@ -1,4 +1,5 @@
 const res = require("express/lib/response")
+const async = require("hbs/lib/async")
 const userModel = require("../../db/models/user.model")
 class User {
     static showAll = async(req,res)=>{
@@ -17,6 +18,9 @@ class User {
     static show = async(req,res)=>{
         try{
          const user = await userModel.findById(req.params.id) //findOne({_id:req.params.id})
+         user.addresses.forEach(addr=>{
+             addr.userId= req.params.id
+         })
          res.render("show", {
             pageTitle:"user data",
             user,
@@ -95,5 +99,22 @@ class User {
            res.send(e.message)
         }
     }
+    static delAddress = async(req,res)=>{
+        try{
+            let userId = req.params.userId
+            let addrId = req.params.addrId
+            const user = await userModel.findOne({_id: userId})
+            // res.send(user)
+            user.addresses = user.addresses.filter(addr=>{
+                return addr._id != addrId
+            })
+            await user.save()
+            res.redirect(`/show/${userId}`)
+        }
+        catch(e){
+            res.send(e.message)
+        }
+    }
+
 }
 module.exports = User
