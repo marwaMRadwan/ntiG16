@@ -1,5 +1,4 @@
-user => name, email, phone, password, age, image, gender, status, created at, updated at
-posts=> userId, post type :image or text, content, file
+vaposts=> userId, post type :image or text, content, file
 post comments, likes
 
 npm init --y
