@@ -72,6 +72,49 @@ class User{
         }
 
     }
+    static edit = async(req,res)=>{
+        try{
+            const user = await userModel.findByIdAndUpdate(
+                req.params.id, req.body, {runValidators:true}
+            )
+            // const user = await userModel.findById(req.params.id)
+            // const data = Object.keys(req.body)
+            // if(data.includes('email')) throw new Error('email cannot be updated')
+            // data.forEach(d=> user[d]= req.body[d])
+            // await user.save()
+            res.status(200).send({
+                apiStatus:true,
+                data:user,
+                message:"user deleted"
+            })
+        }
+        catch(e){
+            res.status(500).send({
+                apiStatus:false,
+                errors:e.message,
+                message:"error in deleting"
+            })
+        }
+
+    }
+    static login = async(req,res)=>{
+        //email, password => hash
+        try{
+            const user = await userModel.loginUser(req.body.email, req.body.password)
+            res.status(200).send({
+                apiStatus:true,
+                data:user,
+                message:"logged in"
+            })
+        }
+        catch(e){
+            res.status(500).send({
+                apiStatus:false,
+                errors:e.message,
+                message:"error in deleting"
+            })    
+        }
+    }
 }
 
 module.exports = User
