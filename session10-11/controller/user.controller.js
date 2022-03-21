@@ -18,6 +18,23 @@ class User{
             })
         }
     }
+    static all = async(req,res)=>{
+        try{
+            const users = await userModel.find().sort({email:1})
+            res.status(200).send({
+                apiStatus:true,
+                data:users,
+                message:"users fetched"
+            })
+        }
+        catch(e){
+            res.status(500).send({
+                apiStatus:false,
+                errors:e.message,
+                message:"error in fetching"
+            })
+        }
+    }
 }
 
 module.exports = User
