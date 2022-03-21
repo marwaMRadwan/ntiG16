@@ -101,9 +101,10 @@ class User{
         //email, password => hash
         try{
             const user = await userModel.loginUser(req.body.email, req.body.password)
+            const token = await user.generateToken()
             res.status(200).send({
                 apiStatus:true,
-                data:user,
+                data:{user, token},
                 message:"logged in"
             })
         }

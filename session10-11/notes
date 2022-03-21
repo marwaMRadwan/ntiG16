@@ -4,5 +4,6 @@ post comments, likes
 npm init --y
 npm i express dotenv mongoose validator
 npm i bcryptjs
+npm i jsonwebtoken
 
 process.env
