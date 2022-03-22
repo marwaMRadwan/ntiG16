@@ -1,6 +1,8 @@
 const userController = require("../controller/user.controller")
 const router = require("express").Router()
 const auth = require("../middleware/auth")
+const upload = require("../middleware/fileUpload")
+
 router.post("/register", userController.add)
 router.post("/login", userController.login)
 //logout
@@ -17,5 +19,6 @@ router.delete('/all/:id', auth, userController.del)
 router.patch('/all/:id', auth, userController.edit)
 router.patch('/all', auth, userController.editWithToken)
 
-router.post("/profileImg", userController.profileImg)
+router.post("/profileImg", auth, upload.single('profile'), userController.profileImg)
+
 module.exports = router

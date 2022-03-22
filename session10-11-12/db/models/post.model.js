@@ -1,6 +1,10 @@
 const mongoose = require("mongoose")
-const validator = require("validator")
 const postSchema = new mongoose.Schema({
+    userId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"User",
+        required:true
+    },
     postType:{
         type:String,
         trim:true,

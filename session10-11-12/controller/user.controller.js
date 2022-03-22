@@ -195,8 +195,14 @@ class User{
             })
         }
     }
-    static profileImg = async(req, res)=>{
-        
+    static profileImg = async(req,res)=>{
+        req.user.image = req.file.path
+        await req.user.save()
+        res.status(200).send({
+            apiStatus:true,
+            data: req.file,
+            message:"uploaded"
+        })
     }
 }
 
