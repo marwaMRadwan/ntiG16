@@ -174,13 +174,30 @@ class User{
         }
 
     }    
-    static profile = (req, res)=>{
+    static profile = async(req, res)=>{
         res.status(200).send({data:req.user, apiStatus:true, message:"profile fetched"})
     }    
-    static changePass = (req, res)=>{
+    static changePass = async(req, res)=>{
+        try{
+            req.user.password = req.body.password
+            await req.user.save()
+            res.status(200).send({
+                apiStatus:true,
+                data:"",
+                message:"changed"
+            })
+        }
+        catch(e){
+            res.status(500).send({
+                apiStatus:false,
+                data:"",
+                message:"cannot change"
+            })
+        }
+    }
+    static profileImg = async(req, res)=>{
         
     }
-
 }
 
 module.exports = User

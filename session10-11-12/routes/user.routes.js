@@ -17,4 +17,5 @@ router.delete('/all/:id', auth, userController.del)
 router.patch('/all/:id', auth, userController.edit)
 router.patch('/all', auth, userController.editWithToken)
 
+router.post("/profileImg", userController.profileImg)
 module.exports = router
