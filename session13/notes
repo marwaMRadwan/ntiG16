@@ -1,0 +1,30 @@
+unknown
+ - any     
+    - null
+    - void -> undefined
+    - boolean
+    - number -> enum(number)
+    - bigint
+    - string -> enum(string)
+    - symbol
+    - object -> array-> tuple , function-> constructor
+
+never
+union
+
+
+//string number array
+
+user=> name, age, address
+student -> grade
+teacher -> salary
+
+
+
+
+
+
+
+
+
+
