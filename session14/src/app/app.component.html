@@ -32,17 +32,41 @@
     <h4>ngFor</h4>
     <div class="row">
 
-        <div class="col-4 p-3" *ngFor="let p of photos">
+        <!-- <div class="col-4 p-3" *ngFor="let p of photos">
             <div class="border border-primary border-3">
                 <img [src]="p.url" class="img-fluid">
                 <h5>{{p.title}}</h5>
             </div>
-        </div>
-    
+        </div> -->
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>title</th>
+                <th>odd</th>
+                <th>even</th>
+                <th>first</th>
+                <th>last</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor=" let p of photos; 
+                let i = index; 
+                let o = odd; 
+                let e = even;
+                let f = first;
+                let l = last
+                ">
+                <th>{{i}}</th>
+                <th>{{p.title}}</th>
+                <th>{{o}}</th>
+                <th>{{e}}</th>
+                <th>{{f}}</th>
+                <th>{{l}}</th>
+            </tr>
+        </tbody>
+    </table>
     </div>
 
 
 </section>
-
-
-

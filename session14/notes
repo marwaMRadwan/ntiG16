@@ -1,1 +1,3 @@
 ng new app
+
+ng g interface folder/image

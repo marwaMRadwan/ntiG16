@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import {Image} from 'src/app/interfaces/image'
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
 
+export class AppComponent {
+ 
   // title :string= 'session14';
   // img:string="assets/img.jpg"
   // data = "<h3>hello</h3><p>hi</p>"
@@ -35,7 +37,7 @@ export class AppComponent {
   // }
 
   // myData:string = "marwa"
-  photos:Image[] = [
+  photos : Image[] = [
     {
     albumId: 1,
     id: 1,
