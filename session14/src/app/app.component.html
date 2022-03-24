@@ -1,0 +1,32 @@
+<section class="container my-5">
+    <!-- <h3>Data binding</h3>
+    <h4>one way</h4>
+    <h5>Interpolation</h5>
+    <p>{{title}}</p>
+    <p>{{5+3}}</p>
+    <p>{{5<3 || 3>4 }}</p>
+    <p>{{myData()}}</p>
+    <img src="{{img}}">
+    <div>{{data}}</div>
+    <hr>
+    <h5>property binding</h5>
+    <img [src]="img">
+    <div [innerHTML]="data"></div>
+    <hr>
+    <h5>Event binding</h5>
+    <button (click)="handleClick()" class="btn btn-primary">Click here</button>
+    <div >{{testEvent}}</div>-->
+    
+    <div class="text-center my-4">
+        <button class="btn btn-danger" (click)="handleBtn('-')"> - </button>
+        <span class="h4 text-primary mx-3">{{val}}</span>
+        <button class="btn btn-success" (click)="handleBtn('+')"> + </button>
+    </div>
+    <p class="h3">{{inputData}}</p>
+    <input class="form-control" (keyup.enter)="handleInput($event)">
+
+    <h3>two way</h3> 
+</section>
+
+
+
