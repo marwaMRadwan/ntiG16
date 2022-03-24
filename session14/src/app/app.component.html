@@ -16,16 +16,32 @@
     <h5>Event binding</h5>
     <button (click)="handleClick()" class="btn btn-primary">Click here</button>
     <div >{{testEvent}}</div>-->
-    
+<!--     
     <div class="text-center my-4">
         <button class="btn btn-danger" (click)="handleBtn('-')"> - </button>
         <span class="h4 text-primary mx-3">{{val}}</span>
         <button class="btn btn-success" (click)="handleBtn('+')"> + </button>
     </div>
     <p class="h3">{{inputData}}</p>
-    <input class="form-control" (keyup.enter)="handleInput($event)">
+    <input class="form-control" (keyup.enter)="handleInput($event)"> -->
 
-    <h3>two way</h3> 
+    <!-- <h3>two way</h3> 
+    {{myData}}
+    <input class="form-control" [(ngModel)]="myData"> -->
+    <h3>Directives</h3>
+    <h4>ngFor</h4>
+    <div class="row">
+
+        <div class="col-4 p-3" *ngFor="let p of photos">
+            <div class="border border-primary border-3">
+                <img [src]="p.url" class="img-fluid">
+                <h5>{{p.title}}</h5>
+            </div>
+        </div>
+    
+    </div>
+
+
 </section>
 
 
