@@ -1,14 +1,50 @@
 
-<input class="form-control" [(ngModel)]="month">
+<!-- <input class="form-control" [(ngModel)]="month">
+<div [ngSwitch]="month"> 
 
-<div [ngSwitch]="month">
-
-    <div *ngFor="let m of months; let i = index" >    
-        <li *ngSwitchCase="(i+1)">{{m}}</li>
+    <div *ngFor="let m of s; let i = index" >    
+        <li *ngSwitchCase="(i+1)">{{m}}</li> 
     </div>
 
     <div *ngIf="month">
         <li *ngSwitchDefault>Invalid month number</li>
     </div>
 
-</div> 
+</div> -->
+<!-- <div [ngSwitch]="month%12">
+
+    <div *ngFor="let m of s; let i = index" >    
+        <li *ngSwitchCase="i">{{m}}</li>
+    </div>
+
+    <div *ngIf="month">
+        <li *ngSwitchDefault>Invalid month number</li>
+    </div>
+
+</div>  -->
+<!-- <input class="form-control" (keyup.enter)="changeVal($event)">
+<div [ngSwitch]="month%12">
+
+    <div *ngFor="let m of s; let i = index" >    
+        <li *ngSwitchCase="i">{{m}}</li>
+    </div>
+
+    <div *ngIf="month">
+        <li *ngSwitchDefault>Invalid month number</li>
+    </div>
+
+</div>  -->
+
+<ul>
+    <li *ngFor="let m of months; let i=index,let o=odd; let e =even; let f=first; let l=last">
+        <p [ngClass]="{
+            'alert':true, 
+            'alert-primary':o, 
+            'alert-danger':e, 
+            'alert-success':f, 
+            'alert-warining':l
+        }"
+        [ngStyle]="{'color':'red'}"
+        >{{m}}</p>
+    </li>
+</ul>
