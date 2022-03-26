@@ -1,0 +1,9 @@
+pages => allTasks, singleTask, contactUs
+navbar
+footer
+
+
+ng g c pages/home 
+ng g c shared/navbar
+
+approuting => { path:"", com:..}
