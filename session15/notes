@@ -2,8 +2,10 @@ pages => allTasks, singleTask, contactUs
 navbar
 footer
 
-
+ng generate component
 ng g c pages/home 
 ng g c shared/navbar
 
 approuting => { path:"", com:..}
+
+ng s -o

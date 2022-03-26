@@ -6,7 +6,7 @@ import { SingletaskComponent } from './pages/singletask/singletask.component';
 
 const routes: Routes = [
   {path:"", component:AlltasksComponent},
-  {path:"allTasks/single", component:SingletaskComponent},
+  {path:"allTasks/:id", component:SingletaskComponent},
   {path:"contact", component:ContactComponent}
 ];
 

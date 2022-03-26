@@ -1,1 +1,14 @@
-<p>contact works!</p>
+
+<input class="form-control" [(ngModel)]="month">
+
+<div [ngSwitch]="month">
+
+    <div *ngFor="let m of months; let i = index" >    
+        <li *ngSwitchCase="(i+1)">{{m}}</li>
+    </div>
+
+    <div *ngIf="month">
+        <li *ngSwitchDefault>Invalid month number</li>
+    </div>
+
+</div> 

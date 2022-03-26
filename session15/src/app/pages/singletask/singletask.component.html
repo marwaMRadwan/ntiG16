@@ -1,1 +1,15 @@
-<p>singletask works!</p>
+<div *ngIf="!task; else elseBlock" class="alert alert-danger"> 
+    task not found
+</div>
+<ng-template #elseBlock>
+    <div>
+        <h3>{{task.userId}}</h3>
+        <h3>{{task.id}}</h3>
+        <h3>{{task.title}}</h3>
+        <h3>{{task.body}}</h3>
+    </div>
+</ng-template>
+
+<div> 
+    <p class="alert alert-primary" routerLink="/">Back Home</p>
+</div>
