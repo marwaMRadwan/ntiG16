@@ -35,7 +35,7 @@
 
 </div>  -->
 
-<ul>
+<!-- <ul>
     <li *ngFor="let m of months; let i=index,let o=odd; let e =even; let f=first; let l=last">
         <p [ngClass]="{
             'alert':true, 
@@ -47,4 +47,16 @@
         [ngStyle]="{'color':'red'}"
         >{{m}}</p>
     </li>
-</ul>
+</ul> -->
+
+<h3>Pipe</h3>
+<h4>Date Pipe</h4>
+<li>{{d|date:'dd/MM/yyyy'}}</li>
+<h4>Stirng</h4>
+<li>{{name|uppercase}}</li>
+<li>{{name|lowercase}}</li>
+<h4>Numbers</h4>
+<li>{{x|number:'2.1-5'}}</li>
+<h4>JSON</h4>
+<li>{{user|json}}</li>
+
