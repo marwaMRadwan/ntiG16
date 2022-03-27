@@ -1,7 +1,20 @@
 <h2>Reactive Form</h2>
+<div>
+    <li>valid: {{myReactiveForm.valid}}</li>
+    <li>invalid: {{myReactiveForm.invalid}}</li>
+    <li>value: {{myReactiveForm.value|json}}</li>
+</div>
 <form [formGroup]="myReactiveForm" (ngSubmit)="reactiveHandle()">
     <div class="mb-3">
         <input placeholder="name" class="form-control" formControlName="name">
+        <div class="my-2 alert alert-danger" 
+        *ngIf="name?.invalid && (name?.touched || name?.dirty || isSubmitted)">
+            <!-- {{myReactiveForm.controls?.['name']?.value}} -->
+            <!-- {{name?.errors|json}} -->
+            <li *ngIf="name?.errors?.['required']">name is required</li>
+            <li *ngIf="name?.errors?.['minlength']">name minlength 3</li>
+            <li *ngIf="name?.errors?.['maxlength']">name maxlength 15</li>
+        </div>
     </div>
     <div class="mb-3">
         <input placeholder="age" class="form-control" formControlName="age">
