@@ -1,0 +1,14 @@
+<form #myForm="ngForm" (ngSubmit)="handleForm(myForm)"> 
+    <div class="mb-3">
+        <input placeholder="Name" class="form-control" name="name" ngModel>
+    </div>
+    <div class="mb-3">
+        <input placeholder="Email" class="form-control" name="email" ngModel>
+    </div>
+    <div class="mb-3">
+        <input placeholder="Age" class="form-control" name="age" ngModel>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary">Submit</button>    
+    </div>
+</form>
