@@ -1,3 +1,4 @@
+<div [ngClass]="{'alert':true,  'alert-danger':!resFlag, 'alert-success':resFlag}" *ngIf="msg!=''">{{msg}}</div>
 <form #myForm="ngForm" (ngSubmit)="handleForm(myForm)"> 
     <div class="mb-3">
         <input placeholder="Name" class="form-control" name="name" ngModel 
@@ -12,12 +13,21 @@
         </div>
     </div>
     <div class="mb-3">
-        <input placeholder="Email" class="form-control" name="email" required email ngModel>
+        <input placeholder="Email" class="form-control" name="email" required email ngModel #email="ngModel">
+        <div 
+        class="alert alert-danger my-2" 
+        *ngIf="email.invalid && (email.dirty || email.touched || myForm.submitted)"
+        >
+            <li *ngIf="email.errors?.['required']">required</li>
+            <li *ngIf="email.errors?.['email']">invalid format</li>
+        </div>
     </div>
     <div class="mb-3">
-        <input placeholder="Age" class="form-control" name="age" ngModel>
+        <input placeholder="Age" class="form-control" name="age" #age="ngModel" ngModel>
+        <div>{{age.errors|json}}</div>
     </div>
     <div class="mb-3">
+        <!-- <button class="btn btn-primary" [disabled]="myForm.invalid">Submit</button>     -->
         <button class="btn btn-primary">Submit</button>    
     </div>
 </form>
