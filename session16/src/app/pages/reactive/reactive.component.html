@@ -1,0 +1,16 @@
+<h2>Reactive Form</h2>
+<form [formGroup]="myReactiveForm" (ngSubmit)="reactiveHandle()">
+    <div class="mb-3">
+        <input placeholder="name" class="form-control" formControlName="name">
+    </div>
+    <div class="mb-3">
+        <input placeholder="age" class="form-control" formControlName="age">
+    </div>
+    <div class="mb-3">
+        <input placeholder="email" class="form-control" formControlName="email">
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary">Submit</button>
+    </div>
+
+</form>
