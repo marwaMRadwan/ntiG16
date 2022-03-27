@@ -1,9 +1,30 @@
+<!-- minlength  maxlength  required email pattern -->
+<div>
+    <li>valid : {{myForm.valid}}</li>
+    <li>invalid: {{myForm.invalid}}</li>
+    <li>submitted: {{myForm.submitted}}</li>
+    <li>value: {{myForm.value|json}}</li>
+</div>
 <form #myForm="ngForm" (ngSubmit)="handleForm(myForm)"> 
     <div class="mb-3">
-        <input placeholder="Name" class="form-control" name="name" ngModel>
+        <input placeholder="Name" class="form-control" name="name" ngModel 
+        required minlength="3" maxlength="20" #name="ngModel">
+        <!-- <div class="alert alert-danger m-3">
+            <li>valid : {{name.valid}}</li>
+            <li>invalid: {{name.invalid}}</li>
+            <li>dirty: {{name.dirty}}</li>
+            <li>value: {{name.value}}</li>
+            <li>touched: {{name.touched}}</li>
+        </div> -->
+        <div class="alert alert-danger" *ngIf="name.invalid">
+            <!-- <li>{{name.errors|json}}</li> -->
+            <li *ngIf="name.errors?.['required']">required</li>
+            <li *ngIf="name.errors?.['minlength']">min length is 3</li>
+            <li *ngIf="name.errors?.['maxlength']">max length is 20</li>
+        </div>
     </div>
     <div class="mb-3">
-        <input placeholder="Email" class="form-control" name="email" ngModel>
+        <input placeholder="Email" class="form-control" name="email" required email ngModel>
     </div>
     <div class="mb-3">
         <input placeholder="Age" class="form-control" name="age" ngModel>

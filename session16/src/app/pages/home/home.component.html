@@ -1,4 +1,23 @@
-<p>home works!</p>
-<i class="fa fa-home fa-5x"></i>
-<i class="fa-brands fa-facebook"></i>
-<i class="fa-brands fa-app-store-ios"></i>
+<form #myForm="ngForm" (ngSubmit)="handleForm(myForm)"> 
+    <div class="mb-3">
+        <input placeholder="Name" class="form-control" name="name" ngModel 
+        required minlength="3" maxlength="20" #name="ngModel">
+        <div 
+        class="alert alert-danger my-2" 
+        *ngIf="name.invalid && (name.dirty || name.touched || myForm.submitted)"
+        >
+            <li *ngIf="name.errors?.['required']">required</li>
+            <li *ngIf="name.errors?.['minlength']">min length is 3</li>
+            <li *ngIf="name.errors?.['maxlength']">max length is 20</li>
+        </div>
+    </div>
+    <div class="mb-3">
+        <input placeholder="Email" class="form-control" name="email" required email ngModel>
+    </div>
+    <div class="mb-3">
+        <input placeholder="Age" class="form-control" name="age" ngModel>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary">Submit</button>    
+    </div>
+</form>
