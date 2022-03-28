@@ -1,1 +1,14 @@
-<p>alldata works!</p>
+<div class="alert alert-danger" *ngIf="isLoading; else data">
+    Loading now
+</div>
+<ng-template #data>
+    <div class="row">
+        <div class="col-md-4 p-3" *ngFor="let img of myData">
+            <div class="border border-primary border-2">
+                <img [src]="img.url" class="img-fluid">
+                <h6>{{img.title}}</h6>
+                <button class="btn btn-primary" routerLink="/allData/{{img.id}}">Show More</button>
+            </div>
+        </div>
+    </div>
+</ng-template>

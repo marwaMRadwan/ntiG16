@@ -1,1 +1,11 @@
-<p>single-data works!</p>
+<!-- <div *ngIf="isLoading; else data">
+    <div>loading now</div>
+    <div *ngIf="isFailed">error</div>
+</div>
+<ng-template #data>
+    {{singleObj.title}}
+</ng-template> -->
+
+<div *ngIf="status==0">Loading Now</div>
+<div *ngIf="status==1">Error in data</div>
+<div *ngIf="status==2">{{singleObj|json}}</div>
