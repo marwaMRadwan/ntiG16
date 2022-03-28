@@ -65,3 +65,52 @@
 // // }
 // let t1 = new Teacher("marwa", 36, "home0", 2000)
 // t1.show()
+
+// interface User{
+//     name:string
+//     age: number
+//     email?: string
+//     martialState: boolean
+// }
+
+// const marwa:User = {
+//     name:"marwa",
+//     age:36,
+//     martialState:true,
+// }
+
+// //implement
+// class MyData implements User{
+//     name:string=""
+//     age:number=0
+//     martialState:boolean=true
+
+//     constructor(name:string){
+
+//     }
+// }
+
+
+
+// interface X{
+//     name:string
+//     show(): void
+// }
+
+// let z:X = {
+//     name:"hdghd",
+//     show:()=>{}
+// }
+
+// abstract class T{
+//     abstract abc():void
+//     xyz(){ console.log("hi") }
+// }
+// class X implements T{
+//     abc(){console.log()}
+//     xyz(){}
+// }
+
+// let a = new T()
+
+

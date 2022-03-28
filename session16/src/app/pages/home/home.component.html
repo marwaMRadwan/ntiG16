@@ -1,4 +1,4 @@
-<div [ngClass]="{'alert':true,  'alert-danger':!resFlag, 'alert-success':resFlag}" *ngIf="msg!=''">{{msg}}</div>
+<!-- <div [ngClass]="{'alert':true,  'alert-danger':!resFlag, 'alert-success':resFlag}" *ngIf="msg!=''">{{msg}}</div>
 <form #myForm="ngForm" (ngSubmit)="handleForm(myForm)"> 
     <div class="mb-3">
         <input placeholder="Name" class="form-control" name="name" ngModel 
@@ -27,7 +27,9 @@
         <div>{{age.errors|json}}</div>
     </div>
     <div class="mb-3">
-        <!-- <button class="btn btn-primary" [disabled]="myForm.invalid">Submit</button>     -->
+         <button class="btn btn-primary" [disabled]="myForm.invalid">Submit</button>     
         <button class="btn btn-primary">Submit</button>    
     </div>
-</form>
+</form> -->
+
+<!-- <button (click)="add(5)">add to cart</button> -->

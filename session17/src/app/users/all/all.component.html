@@ -1,0 +1,16 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Show</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of allData; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{user.name}}</td>
+            <td><button class="btn btn-primary" routerLink="/users/{{user.id}}">show</button></td>
+        </tr>
+    </tbody>
+</table>

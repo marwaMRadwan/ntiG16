@@ -20,7 +20,18 @@ const postSchema = new mongoose.Schema({
         type:String,
         trim:true,
         required: () => this.postType == "img"
-    }
+    },
+    likes:[
+        {
+            userId:{}
+        }
+    ],
+    comments:[
+        {
+            userId:{},
+            comment:{}
+        }
+    ]
 },
 {timestamps:true})
 

@@ -1,0 +1,12 @@
+<div class="row border border-primary border-2" *ngIf="user">
+    <h6>{{user.name}}</h6>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{user.address.street}}</th>
+                <th>{{user.address.suite}}</th>
+                <th>{{user.address.zipcode}}</th>
+            </tr>
+        </thead>
+    </table>
+</div>

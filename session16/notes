@@ -1,3 +1,18 @@
 template driven form => FormsModule
 
 reactive form => ReactiveFormsModule
+
+
+userId:5,
+pro:[
+    {proId:5, q:3}
+]
+
+showcart{
+    let z 
+    let x = awit cart.find({userId: req.user._id})
+    x.pros.forEach(a=> {
+        let p = await p.findById(a.productId)
+        p.q = a.q
+    })
+}

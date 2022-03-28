@@ -18,9 +18,8 @@ class User {
     static show = async(req,res)=>{
         try{
          const user = await userModel.findById(req.params.id) //findOne({_id:req.params.id})
-         user.addresses.forEach(addr=>{
-             addr.userId= req.params.id
-         })
+         user.addresses.forEach(addr=> addr.userId= req.params.id)
+        //  {addrType:"", addrDetails:"", userId:""}
          res.render("show", {
             pageTitle:"user data",
             user,
@@ -83,7 +82,11 @@ class User {
     }
     static editUserLogic=async(req,res)=>{
         try{
-            await userModel.findByIdAndUpdate(req.params.id, req.body)
+            await userModel.findByIdAndUpdate(
+                req.params.id, 
+                req.body, 
+                { runValidators : true } 
+                )
             res.redirect('/')
         }
         catch(e){
@@ -104,7 +107,6 @@ class User {
             let userId = req.params.userId
             let addrId = req.params.addrId
             const user = await userModel.findOne({_id: userId})
-            // res.send(user)
             user.addresses = user.addresses.filter(addr=>{
                 return addr._id != addrId
             })

@@ -7,6 +7,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { AlldataComponent } from './pages/alldata/alldata.component';
 import { SingleDataComponent } from './pages/single-data/single-data.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AllComponent } from './users/all/all.component';
+import { SingleComponent } from './users/single/single.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     HomeComponent,
     AlldataComponent,
     SingleDataComponent,
-    NavbarComponent
+    NavbarComponent,
+    AllComponent,
+    SingleComponent
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,35 @@
-asmaa- eman - samira
-myada- hager- nouran
-hadeer - m ashraf
-ibraheem - ahmed
-basant
-abanoub
-jolina
-omar
-yousief
-mustafa
+yousief => Ecommerce => admin, user, Ads, category
+ibraheem - ahmed azmy => admin, user, category => news
+asmaa- eman - samira => book store
+myada- hager- nouran => Ecommerce
+hadeer - m ashraf => 
+basant => magazine
+abanoub - jolina => resturant
+omar => 
+mustafa =>
 m ibraheem
 nermen
-ahmed2
+ahmed maged
+
+
+attributes:[
+    {atrName: color, values:[{val:x, q:100, price:50},y,z,w]}
+]
+
+
+products [
+    {}
+]
+
+let pro = await proModel.find()
+pro.forEach(p=> p.isMine = (p._id==req.user._id))
+
+p{
+    isMine:true // false
+    atrName
+    image
+    .....
+}
+
+
+findAndUpdate({_id:proId, userId: req.user._id}, {$set:{}})

@@ -18,5 +18,9 @@ export class DataService {
   getSingleData(id:string):Observable<any>{
     return this._http.get(`https://jsonplaceholder.typicode.com/photos/${id}`)
   }
+
+  addData(data:any):Observable<any>{
+    return this._http.post("https://jsonplaceholder.typicode.com/posts", data)
+  }
   
 }
