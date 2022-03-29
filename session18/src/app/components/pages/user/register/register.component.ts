@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { UserService } from 'src/app/providers/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -8,11 +9,17 @@ import { NgForm } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _user:UserService) { }
 
   ngOnInit(): void {
   }
   rigsterUser(register:NgForm){
-    console.log(register.value)
+    // console.log(register.value)
+    if(register.valid){
+      this._user.registerUser(register.value).subscribe(
+        data=> console.log(data)
+      )
+    }
   }
+
 }

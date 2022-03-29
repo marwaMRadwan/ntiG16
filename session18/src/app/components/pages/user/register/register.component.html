@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="mb-3">
-        <input class="form-control" name="passsword" placeholder="passsword" 
+        <input class="form-control" name="password" placeholder="passsword" 
         #password="ngModel" required minlength="6" maxlength="20"
         ngModel>
         <div class="alert alert-danger my-2" 
@@ -76,8 +76,8 @@
             <li *ngIf="gender.errors?.['required']">* required</li>
         </div>
 
-      </div>
-      <div class="mb-3">
+    </div>
+    <div class="mb-3">
           <button class="btn btn-primary">Register</button>
-      </div>
+    </div>
 </form>
