@@ -16,6 +16,8 @@ export class RegisterComponent implements OnInit {
     gender:null,
     password:""
   }
+  msg=""
+  emailError=""
   phoneSpcialError = ""
   constructor(private _user:UserService) { }
 
@@ -26,11 +28,20 @@ export class RegisterComponent implements OnInit {
     // console.log(register.value)
     let pStatus = this.checkPhone(this.userData.phone)
     if(register.valid && pStatus){
-      
       console.log(register.value)
-      // this._user.registerUser(register.value).subscribe(
-      //   data=> console.log(data)
-      // )
+      this._user.registerUser(register.value).subscribe(
+        data=> {
+          console.log(data)
+        },
+        (e)=>{
+          this.msg="check your inputs"
+          this.emailError="email used before"
+        },
+        ()=>{
+          this.msg = "user added"
+          register.resetForm()
+        }
+      )
     }
   }
 checkPhone(pNum:string):boolean{

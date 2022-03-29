@@ -1,5 +1,6 @@
 <!-- restful -->
 <h2 class="text-primary text-center my-2">Register your data</h2>
+<div class="h4">{{msg}}</div>
 <form #register="ngForm" (ngSubmit)="rigsterUser(register)">
     <div class="mb-3">
         <input class="form-control" name="name" placeholder="name" 
@@ -26,11 +27,14 @@
     <div class="mb-3">
         <input class="form-control" name="email" placeholder="email"
         #email="ngModel" email required
-        ngModel>
+        ngModel (input)="emailError=''">
         <div class="alert alert-danger my-2" 
         *ngIf="email.invalid&& (email.dirty || register.submitted)">
             <li *ngIf="email.errors?.['required']">* required</li>
             <li *ngIf="email.errors?.['email']">* Email invalid format</li>
+        </div>
+        <div class="alert alert-danger" *ngIf="emailError!=''">
+            <li>{{emailError}}</li>
         </div>
     </div>
     <div class="mb-3">
