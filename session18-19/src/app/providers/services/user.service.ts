@@ -15,4 +15,7 @@ export class UserService {
   loginUser(data:any):Observable<any>{
     return this._http.post(`${this.host}login`, data)
   }
+  allUsers():Observable<any>{
+    return this._http.get(`${this.host}all`)
+  }
 }

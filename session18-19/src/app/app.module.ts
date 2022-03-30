@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
@@ -14,6 +14,7 @@ import { SingleUserComponent } from './components/pages/user/single-user/single-
 import { EditProfileComponent } from './components/pages/user/edit-profile/edit-profile.component';
 import { AddPostComponent } from './components/pages/posts/add-post/add-post.component';
 import { MyPostsComponent } from './components/pages/posts/my-posts/my-posts.component';
+import { AuthInterceptor } from './providers/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { MyPostsComponent } from './components/pages/posts/my-posts/my-posts.com
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
