@@ -15,6 +15,7 @@ import { EditProfileComponent } from './components/pages/user/edit-profile/edit-
 import { AddPostComponent } from './components/pages/posts/add-post/add-post.component';
 import { MyPostsComponent } from './components/pages/posts/my-posts/my-posts.component';
 import { AuthInterceptor } from './providers/interceptors/auth.interceptor';
+import { UserService } from './providers/services/user.service';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AuthInterceptor } from './providers/interceptors/auth.interceptor';
     HttpClientModule
   ],
   providers: [
+    UserService,
     {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
   ],
   bootstrap: [AppComponent]
