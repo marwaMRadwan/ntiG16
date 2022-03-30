@@ -1,0 +1,88 @@
+<!-- restful -->
+<h2 class="text-primary text-center my-2">Register your data</h2>
+<div class="h4">{{msg}}</div>
+<form #register="ngForm" (ngSubmit)="rigsterUser(register)">
+    <div class="mb-3">
+        <input class="form-control" name="name" placeholder="name" 
+        #name="ngModel" required minlength="3" maxlength="20"
+        [(ngModel)]="userData.name">
+        <div class="alert alert-danger my-2" 
+        *ngIf="name.invalid&& (name.dirty || register.submitted)">
+            <li *ngIf="name.errors?.['required']">* required</li>
+            <li *ngIf="name.errors?.['minlength']">* minimum chars is 3</li>
+            <li *ngIf="name.errors?.['maxlength']">* maximum chars is 20</li>
+        </div>
+    </div>
+    <div class="mb-3">
+        <input class="form-control" name="age" placeholder="age"
+        #age="ngModel" type="number" required min="21" max="60"
+        ngModel>
+        <div class="alert alert-danger my-2" 
+        *ngIf="age.invalid&& (age.dirty || register.submitted)">
+            <li *ngIf="age.errors?.['required']">* required</li>
+            <li *ngIf="age.errors?.['min']">* minmun age is 21</li>
+            <li *ngIf="age.errors?.['max']">* maxmun age is 60</li>
+        </div>
+    </div>
+    <div class="mb-3">
+        <input class="form-control" name="email" placeholder="email"
+        #email="ngModel" email required
+        ngModel (input)="emailError=''">
+        <div class="alert alert-danger my-2" 
+        *ngIf="email.invalid&& (email.dirty || register.submitted)">
+            <li *ngIf="email.errors?.['required']">* required</li>
+            <li *ngIf="email.errors?.['email']">* Email invalid format</li>
+        </div>
+        <div class="alert alert-danger" *ngIf="emailError!=''">
+            <li>{{emailError}}</li>
+        </div>
+    </div>
+    <div class="mb-3">
+        <input class="form-control" name="password" placeholder="passsword" 
+        #password="ngModel" required minlength="6" maxlength="20"
+        ngModel>
+        <div class="alert alert-danger my-2" 
+        *ngIf="password.invalid&& (password.dirty || register.submitted)">
+            <li *ngIf="password.errors?.['required']">* required</li>
+            <li *ngIf="password.errors?.['minlength']">* minimum chars is 6</li>
+            <li *ngIf="password.errors?.['maxlength']">* maximum chars is 20</li>
+        </div>
+
+    </div>
+    <div class="mb-3">
+        <input class="form-control" name="phone" placeholder="phone" 
+        required minlength="11" maxlength="11" #phone="ngModel" [(ngModel)]="userData.phone" (input)="checkPhone(userData.phone)">
+        <!-- <div class="alert alert-danger my-2" 
+        *ngIf="phone.invalid&& (phone.dirty || register.submitted)">
+            <li *ngIf="phone.errors?.['required']">* required</li>
+            <li *ngIf="phone.errors?.['minlength']">* must be 11 numbers</li>
+        </div> -->
+        <div class="alert alert-danger my-2" *ngIf="phoneSpcialError!='' && (phone.dirty || register.submitted)">
+           <li>* {{phoneSpcialError}}</li>
+        </div>
+
+    </div>
+    <div class="form-check mb-3">
+        <div class="row">
+            <div class="col-1">
+                <label class="form-check-label" for="gender">Gender</label>
+            </div>
+            <div class="col-1">
+                <input class="form-check-input" type="radio" name="gender" value="male" #gender="ngModel" required
+                ngModel> 
+                <label class="form-check-label" for="gender">Male</label>        
+            </div>
+            <div class="col-1">
+                <input class="form-check-input" type="radio" name="gender" value="female" ngModel #gender="ngModel" required> 
+                <label class="form-check-label" for="gender">Female</label>
+            </div>
+        </div>
+        <div class="alert alert-danger my-2" 
+        *ngIf="gender.invalid&& (gender.touched || register.submitted)">
+            <li *ngIf="gender.errors?.['required']">* required</li>
+        </div>
+    </div>
+    <div class="mb-3">
+          <button class="btn btn-primary">Register</button>
+    </div>
+</form>
