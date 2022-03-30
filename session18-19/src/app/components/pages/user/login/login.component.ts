@@ -27,9 +27,11 @@ export class LoginComponent implements OnInit {
       this._user.loginUser(this.loginForm.value).subscribe(
         res=>{
           localStorage.setItem('appToken',res.data.token)
+          this._user.userData=res.data.user
         },
         (e)=>{},
         ()=>{
+          this._user.isLoggedIn=true
           // this._router.navigate(['user/all'])
           this._router.navigateByUrl('user/all')
         }

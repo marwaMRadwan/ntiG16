@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+  public userData = {name:""}
+  public isLoggedIn = false
   host = "http://localhost:3000/user/"
   constructor(private _http:HttpClient) { }
 
@@ -17,5 +19,8 @@ export class UserService {
   }
   allUsers():Observable<any>{
     return this._http.get(`${this.host}all`)
+  }
+  me():Observable<any>{
+    return this._http.post(`${this.host}me`, null)
   }
 }

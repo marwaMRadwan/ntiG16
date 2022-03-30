@@ -9,24 +9,29 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+            <a class="nav-link" aria-current="page" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="!_user.isLoggedIn">LOGIN</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="/user/register" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">register</a>
+            <a class="nav-link" aria-current="page" routerLink="/user/register" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="!_user.isLoggedIn">register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="/user/profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">profile</a>
+            <a class="nav-link" aria-current="page" routerLink="/user/profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="_user.isLoggedIn">profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="/user/all" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">all users</a>
+            <a class="nav-link" aria-current="page" routerLink="/user/all" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="_user.isLoggedIn">all users</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="/post/add" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">add post</a>
+            <a class="nav-link" aria-current="page" routerLink="/post/add" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="_user.isLoggedIn">add post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="/post/myPosts" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">myPosts</a>
+            <a class="nav-link" aria-current="page" routerLink="/post/myPosts" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="_user.isLoggedIn">myPosts</a>
           </li>
-
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" *ngIf="_user.isLoggedIn">
+              {{_user.userData.name}} 
+              <button class="btn btn-danger">Logout</button>
+            </a>
+          </li>
         </ul>
 
       </div>
