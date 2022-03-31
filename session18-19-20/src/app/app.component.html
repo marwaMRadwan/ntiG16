@@ -1,0 +1,5 @@
+<app-navbar *ngIf="_user.isLoggedIn"></app-navbar>
+<section class="container my-4">
+    <router-outlet></router-outlet>
+</section>
+<app-footer *ngIf="_user.isLoggedIn"></app-footer>
