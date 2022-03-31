@@ -16,6 +16,7 @@ export class AppComponent {
       },
       ()=>{
         this._user.isLoggedIn=true
+        console.log("test")
       }
     )
   }

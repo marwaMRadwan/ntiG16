@@ -8,19 +8,20 @@ import { LoginComponent } from './components/pages/user/login/login.component';
 import { ProfileComponent } from './components/pages/user/profile/profile.component';
 import { RegisterComponent } from './components/pages/user/register/register.component';
 import { SingleUserComponent } from './components/pages/user/single-user/single-user.component';
+import { NotAuthGuard } from './providers/guards/not-auth.guard';
 
 const routes: Routes = [
   {path:"", component:LoginComponent},
   {path:"user", children:[
     {path:"register", component:RegisterComponent},
-    {path:"profile", component:ProfileComponent},
-    {path:"all", component:AllUsersComponent},
-    {path:"all/:id", component:SingleUserComponent},
-    {path:"edit/:id", component:EditProfileComponent}
+    {path:"profile", component:ProfileComponent, canActivate:[NotAuthGuard]},
+    {path:"all", component:AllUsersComponent, canActivate:[NotAuthGuard]},
+    {path:"all/:id", component:SingleUserComponent, canActivate:[NotAuthGuard]},
+    {path:"edit/:id", component:EditProfileComponent, canActivate:[NotAuthGuard]}
   ]},
   {path:"post", children:[
-    {path:"add", component:AddPostComponent},
-    {path:"myPosts", component:MyPostsComponent}
+    {path:"add", component:AddPostComponent, canActivate:[NotAuthGuard]},
+    {path:"myPosts", component:MyPostsComponent, canActivate:[NotAuthGuard]}
   ]}
 ];
 

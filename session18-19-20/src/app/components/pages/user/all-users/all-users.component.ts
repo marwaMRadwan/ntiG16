@@ -13,8 +13,8 @@ export class AllUsersComponent implements OnInit {
 
   ngOnInit(): void {
     this._user.allUsers().subscribe(
-      data=> this.data=data.data,
-      (e)=> this._router.navigateByUrl("/")
+      data=>{ this.data=data.data},
+      (e)=> {}
     )
   }
 handleDelete(userId:string, index:number){

@@ -8,7 +8,8 @@ export class UserService {
   public userData = {name:""}
   public isLoggedIn = false
   host = "http://localhost:3000/user/"
-  constructor(private _http:HttpClient) { }
+  constructor(private _http:HttpClient) { 
+  }
 
   registerUser(data:any):Observable<any>{
     return this._http.post(`${this.host}register`, data)

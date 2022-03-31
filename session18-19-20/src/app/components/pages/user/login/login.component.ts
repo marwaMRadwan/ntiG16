@@ -19,9 +19,18 @@ export class LoginComponent implements OnInit {
   get email(){ return this.loginForm.get("email")}
   get password(){ return this.loginForm.get("password")}
 
-  constructor(private _user:UserService, private _router:Router) { }
+  constructor(private _user:UserService, private _router:Router) {
+    
+   }
 
   ngOnInit(): void {
+    let token =null
+    token =localStorage.getItem("appToken")
+    if(token) {
+     console.log("hello")
+      this._router.navigateByUrl("/post/add")
+      // window.location.href="http://localhost:4200/user/all"
+    }
   }
 
   login(){
