@@ -19,6 +19,10 @@ class Post{
             res.status(500).send({erros:e.message})
         }
     }
+    // static addTxt= async() => {
+    //     data = {...req.body, type:"txt"}
+    // }
+    // static addImg=async()=>{}
 }
 
 module.exports = Post

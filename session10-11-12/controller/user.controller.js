@@ -24,6 +24,7 @@ class User{
             res.status(200).send({
                 apiStatus:true,
                 data:users,
+                count:users.length,
                 message:"users fetched"
             })
         }

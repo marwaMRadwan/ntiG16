@@ -1,3 +1,7 @@
-<section class="row">
-    <img src="">
-</section>
+<!-- router.post("/profileImg", auth, upload.single('profile'), userController.profileImg) -->
+
+<input type="file" (change)="onUploadFile($event)">
+<button (click)="handleUpload()">Upload</button>
+
+
+<!-- <img src="localhost:3000/{{data.image}}" -->

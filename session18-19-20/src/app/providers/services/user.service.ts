@@ -30,4 +30,7 @@ export class UserService {
   delUser(id:string):Observable<any>{
     return this._http.delete(`${this.host}all/${id}`)
   }
+  uploadImg(data:any):Observable<any>{
+    return this._http.post(`${this.host}profileImg`, data)
+  }
 }

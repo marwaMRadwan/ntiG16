@@ -14,10 +14,11 @@ const routes: Routes = [
   {path:"", component:LoginComponent},
   {path:"user", children:[
     {path:"register", component:RegisterComponent},
-    {path:"profile", component:ProfileComponent, canActivate:[NotAuthGuard]},
+    {path:"profile", component:EditProfileComponent, canActivate:[NotAuthGuard]},
+    // {path:"editProfile", component:EditProfileComponent},
     {path:"all", component:AllUsersComponent, canActivate:[NotAuthGuard]},
     {path:"all/:id", component:SingleUserComponent, canActivate:[NotAuthGuard]},
-    {path:"edit/:id", component:EditProfileComponent, canActivate:[NotAuthGuard]}
+    // {path:"edit/:id", component:EditProfileComponent, canActivate:[NotAuthGuard]}
   ]},
   {path:"post", children:[
     {path:"add", component:AddPostComponent, canActivate:[NotAuthGuard]},
